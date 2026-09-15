@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp
+  labels:
+    app: myapp
+spec:
+  containers:
+    - name: httpd-container
+      image: httpd:latest
+      ports:
+        - name: httpd-port
+          containerPort: 80
+
+...
+---
+apiVersion: v1
+kind: Service 
+
+metadata:
+  name: apache-service
+  labels:
+    app: myapp
+
+spec:
+  type: NodePort
+  selector:
+    app: myapp
+  ports:
+    - name: httpd-svc-port
+      protocol: TCP
+      port: 80
+      targetPort: 80
