@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: statefulSet
+kind: StatefulSet
 metadata:
   name: my-ss
   labels:
@@ -38,7 +38,7 @@ kind: Service
 metadata:
   name: mysql-svc
 spec:
-  ClusterIP: none
+  ClusterIP: None
   selector:
     app: myapp
   ports:
