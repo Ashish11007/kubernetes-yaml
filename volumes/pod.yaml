@@ -10,12 +10,12 @@ spec:
       persistentVolumeClaim:
         claimName: mypvc
 
-    containers:
-      - name: nginx-container
-        image: nginx:latest
-        ports:
-          - name: myport
-            containerPort: 80
-        volumeMounts:
+      containers:
+        - name: nginx-container
+          image: nginx:latest
+          ports:
+            - name: myport
+              containerPort: 80
+          volumeMounts:
           - name: myvolume
             mountPath: /usr/share/nginx/html/
